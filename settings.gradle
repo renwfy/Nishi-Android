@@ -1,1 +1,1 @@
-include ':nishi', ':lib'
+include ':nishi', ':lib',':PagerIndicator_Lib'

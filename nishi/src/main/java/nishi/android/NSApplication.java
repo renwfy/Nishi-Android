@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.lib.AppLib;
 
+import nishi.android.net.NSRequestManager;
+
 /**
  * Created by LSD on 15/9/23.
  */
@@ -21,5 +23,8 @@ public class NSApplication extends Application {
 
         AppLib.setDebug(Constants.DEBUG);
         AppLib.initFileUtil(Constants.BASE_FOLDER);
+
+        NSRequestManager.init(this, Constants.BASE_URL);
+        Config.initQiniuUrl();
     }
 }

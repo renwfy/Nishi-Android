@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/cover_hight">
+
+    <ImageView
+        android:id="@+id/iv_list_pic"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/cover_hight"
+        android:scaleType="fitXY"
+        android:src="@drawable/testpic" />
+
+    <ImageView
+        android:id="@+id/iv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_comm"
+        android:layout_marginTop="@dimen/margin_comm"
+        android:src="@drawable/ic_type_delicacy" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_comm"
+        android:layout_marginLeft="@dimen/margin_comm"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="苏州美食特色点"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_comm" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_item_address"
+            android:drawablePadding="@dimen/padding_small"
+            android:singleLine="true"
+            android:text="苏州金鸡湖大道123号"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_collect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/margin_comm"
+        android:layout_marginRight="@dimen/margin_comm"
+        android:drawableTop="@drawable/ic_item_collect0"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        android:text="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small" />
+
+</RelativeLayout>
