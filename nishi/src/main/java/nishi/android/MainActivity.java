@@ -1,5 +1,6 @@
 package nishi.android;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -24,6 +25,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nishi.android.activity.CommonActivity;
+import nishi.android.activity.LoginActivity;
 import nishi.android.api.Api;
 import nishi.android.model.Article;
 import nishi.android.net.NSCallback;
@@ -70,7 +72,7 @@ public class MainActivity extends CommonActivity {
 
     @OnClick(R.id.iv_user)
     public void userAcoutClick(){
-
+        startActivity(new Intent(mActivity, LoginActivity.class));
     }
 
     private class PagerAdapter extends IndicatorViewPager.IndicatorFragmentPagerAdapter {

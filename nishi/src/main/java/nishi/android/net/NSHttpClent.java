@@ -29,7 +29,7 @@ public class NSHttpClent {
     }
 
     public static NSRequest post(String url, Map<String, String> pamas, NSCallback callback) {
-        pamas = setParams(pamas, callback);
+        //pamas = setParams(pamas, callback);
         NSRequest request = new DefaultRequest(BASE_URL + url, callback);
         request.setParams(pamas);
         request.setHeaders(setHeader(null, callback));

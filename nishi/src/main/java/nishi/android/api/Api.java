@@ -40,13 +40,13 @@ public class Api extends NSHttpClent {
      * @param mobile
      * @param type   0:注册 1:修改绑定手机 2:修改密码 3:忘记密码
      */
-    public static void send_verification_code(String mobile, String type, NSCallback callback) {
+    public static void send_verification_code(String mobile, int type, NSCallback callback) {
         Map<String, String> pamas = new HashMap<>();
         pamas.put("mobile", mobile);
-        pamas.put("type", type);
+        pamas.put("type", type+"");
 
-        String verificationCodeToken = "";
-        pamas.put("verificationCodeToken", verificationCodeToken);
+        //String verificationCodeToken = "";
+        //pamas.put("verificationCodeToken", verificationCodeToken);
 
         String url = "/app/user/send_verification_code";
         post(url, pamas, callback);

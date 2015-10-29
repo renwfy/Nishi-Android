@@ -18,6 +18,7 @@ import java.util.TimerTask;
  * Created by wuhaojie on 2015/7/23.
  */
 public class CountDownButton extends Button {
+    OnCountdownListener listener;
 
     /**
      * 默认倒计时时间
@@ -70,6 +71,7 @@ public class CountDownButton extends Button {
 
     /**
      * 构造函数
+     *
      * @param context
      * @param attrs
      */
@@ -98,10 +100,7 @@ public class CountDownButton extends Button {
             public void onClick(View v) {
                 if (!isCountDown) {
                     startCountDown();
-                } else {
-                    stopCountDown();
                 }
-
             }
         });
     }
@@ -109,7 +108,7 @@ public class CountDownButton extends Button {
     /**
      * 停止倒计时
      */
-    private void stopCountDown() {
+    public void stopCountDown() {
         setEnabled(true);
         setText(text);
         if (timer != null && timerTask != null) {
@@ -119,12 +118,14 @@ public class CountDownButton extends Button {
             timer = null;
         }
         isCountDown = false;
+        if (listener != null)
+            listener.onStop();
     }
 
     /**
      * 开始倒计时
      */
-    private void startCountDown() {
+    public void startCountDown() {
         setEnabled(false);
         leftTime = time;
         timer = new Timer();
@@ -141,5 +142,17 @@ public class CountDownButton extends Button {
         };
         timer.schedule(timerTask, 0, 1000);
         isCountDown = true;
+        if (listener != null)
+            listener.onStart();
+    }
+
+    public void setOnCountdownListener(OnCountdownListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnCountdownListener {
+        void onStart();
+
+        void onStop();
     }
 }
