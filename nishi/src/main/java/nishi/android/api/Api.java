@@ -1,5 +1,9 @@
 package nishi.android.api;
 
+import android.util.Base64;
+
+import com.lib.Des3;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,8 +49,17 @@ public class Api extends NSHttpClent {
         pamas.put("mobile", mobile);
         pamas.put("type", type+"");
 
-        //String verificationCodeToken = "";
-        //pamas.put("verificationCodeToken", verificationCodeToken);
+        String key = "0123456789abcd0123456789";
+        String iv = "12345678";
+        String data = mobile+"ABC"+System.currentTimeMillis()+"ABC"+type;
+        byte[] encode = new byte[0];
+        try {
+            encode = Des3.des3EncodeCBC(key.getBytes(),iv.getBytes(),data.getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String verificationCodeToken = Base64.encodeToString(encode, Base64.DEFAULT);
+        pamas.put("verificationCodeToken", verificationCodeToken);
 
         String url = "/app/user/send_verification_code";
         post(url, pamas, callback);

@@ -91,9 +91,12 @@ public class OkHttpClientMr {
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(final Request request, final IOException e) {
-                e.printStackTrace();
-                Log.e(Tag,e.getCause().toString()+e.getMessage());
-                sendFailedStringCallback(e.getMessage(), -1, resCallBack);
+                if(e != null){
+                    e.printStackTrace();
+                    Log.e(Tag, e.getMessage());
+                    Log.e(Tag,"网络请求故障");
+                }
+                sendFailedStringCallback("", -2, resCallBack);
             }
 
             @Override

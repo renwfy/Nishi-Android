@@ -93,6 +93,9 @@ public abstract class NSCallback<T> extends OkHttpClientMr.OKCallback {
     }
 
     public void onFail(int code, String msg) {
+        if (!TextUtils.isEmpty(msg)){
+            AppTips.showToast(context,msg);
+        }
     }
 
 

@@ -12,6 +12,7 @@ import com.lib.utils.AppTips;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import nishi.android.NSApplication;
 import nishi.android.R;
 import nishi.android.api.Api;
 import nishi.android.model.User;
@@ -58,7 +59,8 @@ public class LoginActivity extends CommonActivity {
         Api.login(phone, pass, new NSCallback<User>(mActivity, User.class, true, "正在登陆") {
             @Override
             public void onSuccess(User user) {
-                super.onSuccess(user);
+                NSApplication.getInstance().login(user);
+                finish();
             }
         });
     }

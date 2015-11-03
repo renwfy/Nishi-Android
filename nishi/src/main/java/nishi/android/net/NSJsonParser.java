@@ -44,9 +44,9 @@ class NSJsonParser {
                 callback.onFail(jr.getErrorCode(), jr.getErrorReason());
             }
         } catch (Exception e) {
-            callback.onFail(-2,"解析异常");
             e.printStackTrace();
-            Log.e(TAG, "解析异常", e);
+            Log.e(TAG, "解析异常");
+            callback.onFail(-1,"");
         }
     }
 

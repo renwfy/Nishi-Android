@@ -1,8 +1,9 @@
-package nishi.android;
+package nishi.android.config;
 
 import com.lib.utils.AppLog;
 import com.squareup.okhttp.Response;
 
+import nishi.android.Constants;
 import nishi.android.api.Api;
 import nishi.android.net.NSCallback;
 import nishi.android.net.NSRequestManager;
