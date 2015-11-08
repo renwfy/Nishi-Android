@@ -145,6 +145,19 @@ public class Api extends NSHttpClent {
         post(url, pamas, callback);
     }
 
+    /***
+     * 获取文章详情
+     *
+     * @param articleId
+     * @param callback
+     */
+    public static void article(String articleId,NSCallback.NSTokenCallback<Article> callback) {
+        Map<String, String> pamas = new HashMap<>();
+        pamas.put("articleId",articleId+"");
+        String url = "/app/article/article";
+        get(url, pamas, callback);
+    }
+
 
 
     public static void create(int page, int size, int sortType, String city, String tradingArea,

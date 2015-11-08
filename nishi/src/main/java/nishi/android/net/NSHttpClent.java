@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import nishi.android.Constants;
+import nishi.android.NSApplication;
 
 /**
  * Created by LSD on 15/10/18.
@@ -55,7 +56,7 @@ public class NSHttpClent {
             header = new HashMap<>();
         }
         if (callback != null && callback instanceof NSCallback.NSTokenCallback) {
-            String token = "";
+            String token = NSApplication.getToken();
             if (TextUtils.isEmpty(token)) {
                 callback.notLogin();
                 return header;

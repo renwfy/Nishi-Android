@@ -42,6 +42,7 @@
                         android:src="@drawable/ic_back" />
 
                     <TextView
+                        android:id="@+id/tv_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -131,11 +132,17 @@
                         android:textColor="@drawable/tv_detail_text_selector"
                         android:textSize="@dimen/text_size_mid" />
                 </LinearLayout>
+
             </LinearLayout>
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
+        android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/white"

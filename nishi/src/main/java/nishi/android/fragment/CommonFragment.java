@@ -26,8 +26,8 @@ public abstract class CommonFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if(rootView==null){
-            rootView= getContentView();
+        if (rootView == null) {
+            rootView = getContentView(inflater);
             ButterKnife.bind(this, rootView);
             onCreateViewCompleted();
         }
@@ -39,6 +39,8 @@ public abstract class CommonFragment extends BaseFragment {
         return rootView;
     }
 
-    protected abstract View getContentView();
-    protected void onCreateViewCompleted(){}
+    protected abstract View getContentView(LayoutInflater inflater);
+
+    protected void onCreateViewCompleted() {
+    }
 }

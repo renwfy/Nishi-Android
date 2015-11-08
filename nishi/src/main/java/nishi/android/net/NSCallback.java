@@ -118,12 +118,12 @@ public abstract class NSCallback<T> extends OkHttpClientMr.OKCallback {
     /***
      * 需要登录
      */
-    public class NSTokenCallback extends NSCallback {
-        public NSTokenCallback(Context context, Class clazz) {
+    public static class NSTokenCallback<T> extends NSCallback<T> {
+        public NSTokenCallback(Context context, Class<T> clazz) {
             super(context, clazz);
         }
 
-        public NSTokenCallback(Context context, Class clazz, boolean showProgressBar, String msg) {
+        public NSTokenCallback(Context context, Class<T> clazz, boolean showProgressBar, String msg) {
             super(context, clazz, showProgressBar, msg);
         }
     }

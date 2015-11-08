@@ -33,15 +33,22 @@ public class NSApplication extends Application {
         Config.initQiniuUrl();
     }
 
-    public void login(User user){
+    public void login(User user) {
         Session.INSTANCE.setUser(user);
         Session.INSTANCE.save(app);
     }
 
-    public static boolean isLogined(){
+    public static String getToken() {
+        String token = "";
         try {
-            return !TextUtils.isEmpty(SESSION.getUser().getAuthToken());
-        }catch (Exception e){}
-        return  false;
+            token = SESSION.getUser().getAuthToken();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return token;
+    }
+
+    public static boolean isLogined() {
+        return !TextUtils.isEmpty(getToken());
     }
 }

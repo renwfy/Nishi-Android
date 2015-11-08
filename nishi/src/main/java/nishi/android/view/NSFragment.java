@@ -1,6 +1,8 @@
 package nishi.android.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.lib.utils.AppLog;
@@ -8,6 +10,7 @@ import com.lib.utils.AppLog;
 import java.util.ArrayList;
 import java.util.List;
 
+import nishi.android.activity.DetailsActivity;
 import nishi.android.api.Api;
 import nishi.android.fragment.CommonFragment;
 import nishi.android.model.Article;
@@ -25,15 +28,15 @@ public class NSFragment extends CommonFragment {
     NSAdapter adapter;
 
     int size = 10;
-    int page;
-    int sortType;//排序类型
+    int page = 0;
+    int sortType = 0;//排序类型
     String city = "苏州";
-    String tradingArea;//商圈
-    int type;//文章类型
-    int recommend;//推荐等级
-    String searchKey="";
-    float longitude;
-    float location;
+    String tradingArea = "";//商圈
+    int type = 0;//文章类型
+    int recommend = 0;//推荐等级
+    String searchKey="小吃";
+    float longitude =0;
+    float location = 0;
 
 
     @Override
@@ -43,7 +46,7 @@ public class NSFragment extends CommonFragment {
     }
 
     @Override
-    protected View getContentView() {
+    protected View getContentView(LayoutInflater inflater) {
         nsListView = new NSListView<Article>(mActivity, true) {
             @Override
             public void loadData() {
@@ -52,7 +55,7 @@ public class NSFragment extends CommonFragment {
 
             @Override
             public void onItemClick(Article article) {
-
+                mActivity.startActivity(new Intent(mActivity, DetailsActivity.class));
             }
         };
         return nsListView.getView();

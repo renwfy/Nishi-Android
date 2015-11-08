@@ -25,6 +25,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import nishi.android.activity.CommonActivity;
+import nishi.android.activity.DetailsActivity;
 import nishi.android.activity.LoginActivity;
 import nishi.android.api.Api;
 import nishi.android.model.Article;
@@ -73,6 +74,10 @@ public class MainActivity extends CommonActivity {
     @OnClick(R.id.iv_user)
     public void userAcoutClick(){
         startActivity(new Intent(mActivity, LoginActivity.class));
+    }
+    @OnClick(R.id.iv_home_edit)
+    public void userAcoutEdit(){
+        startActivity(new Intent(mActivity, DetailsActivity.class));
     }
 
     private class PagerAdapter extends IndicatorViewPager.IndicatorFragmentPagerAdapter {
