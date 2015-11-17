@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.lib.net.NetCallback;
 import com.lib.net.OkHttpClientMr;
 import com.lib.utils.AppLog;
 import com.lib.utils.AppTips;
@@ -18,7 +19,7 @@ import nishi.android.Constants;
 /**
  * Created by LSD on 15/10/18.
  */
-public abstract class NSCallback<T> extends OkHttpClientMr.OKCallback {
+public abstract class NSCallback<T> extends NetCallback {
     private String Tag = NSCallback.class.getSimpleName();
     private Context context;
     private NSJsonParser nsJsonParser = new NSJsonParser();

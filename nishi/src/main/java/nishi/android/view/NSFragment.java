@@ -34,7 +34,7 @@ public class NSFragment extends CommonFragment {
     String tradingArea = "";//商圈
     int type = 0;//文章类型
     int recommend = 0;//推荐等级
-    String searchKey="小吃";
+    String searchKey="";
     float longitude =0;
     float location = 0;
 
@@ -55,7 +55,7 @@ public class NSFragment extends CommonFragment {
 
             @Override
             public void onItemClick(Article article) {
-                mActivity.startActivity(new Intent(mActivity, DetailsActivity.class));
+                mActivity.startActivity(new Intent(mActivity, DetailsActivity.class).putExtra(DetailsActivity.ARTICLE_ID,article.get_id()));
             }
         };
         return nsListView.getView();

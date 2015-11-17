@@ -26,6 +26,7 @@ public class NSApplication extends Application {
         app = this;
         SESSION = Session.INSTANCE = Session.load(app);
 
+        AppLib.init(this);
         AppLib.setDebug(Constants.DEBUG);
         AppLib.initFileUtil(Constants.BASE_FOLDER);
 

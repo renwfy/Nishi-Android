@@ -1,6 +1,7 @@
 package nishi.android.net;
 
 import com.lib.net.OkHttpClientMr;
+import com.lib.net.VolleyMr;
 import com.lib.utils.AppLog;
 import com.lib.utils.AppTips;
 
@@ -26,9 +27,11 @@ public class DefaultRequest implements NSRequest {
         if (null == params) {
             AppLog.d(Tag, url);
             OkHttpClientMr.getAsyn(url, header, null, callback);
+            //VolleyMr.get(url,header,callback);
         } else {
             AppLog.d(Tag, url + OkHttpClientMr.getStringReqParam(params));
             OkHttpClientMr.postAsyn(url, params, header, null, callback);
+            //VolleyMr.post(url,header,params,callback);
         }
         return this;
     }

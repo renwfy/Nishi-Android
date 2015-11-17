@@ -1,13 +1,20 @@
 package com.lib.utils;
 
 import android.app.AlertDialog;
+import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import com.lib.AppLib;
+
 public class AppTips {
 
     public static long lastTime = 0;
+
+    public static void showToast(String content) {
+        showToast(AppLib.appContext,content);
+    }
 
     public static void showToast(Context context, String content) {
         long curTime = System.currentTimeMillis();

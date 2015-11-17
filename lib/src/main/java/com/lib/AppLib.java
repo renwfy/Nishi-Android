@@ -1,5 +1,7 @@
 package com.lib;
 
+import android.app.Application;
+
 import com.lib.utils.AppLog;
 import com.lib.utils.FileUtil;
 
@@ -8,6 +10,11 @@ import com.lib.utils.FileUtil;
  */
 public class AppLib {
     private static boolean debug;
+    public static Application appContext;
+
+    public  static void init(Application context){
+        appContext = context;
+    }
 
     /**
      * debug模式

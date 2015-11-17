@@ -2,12 +2,13 @@ package nishi.android.api;
 
 import android.util.Base64;
 
-import com.lib.Des3;
+import com.lib.utils.Des3;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import nishi.android.model.Article;
+import nishi.android.model.ArticleDetails;
 import nishi.android.net.NSCallback;
 import nishi.android.net.NSHttpClent;
 
@@ -151,7 +152,7 @@ public class Api extends NSHttpClent {
      * @param articleId
      * @param callback
      */
-    public static void article(String articleId,NSCallback.NSTokenCallback<Article> callback) {
+    public static void article(String articleId,NSCallback.NSTokenCallback<ArticleDetails> callback) {
         Map<String, String> pamas = new HashMap<>();
         pamas.put("articleId",articleId+"");
         String url = "/app/article/article";

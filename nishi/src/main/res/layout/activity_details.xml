@@ -24,8 +24,7 @@
                     android:id="@+id/iv_cover"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/cover_hight"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/testpic" />
+                    android:scaleType="fitXY" />
 
                 <LinearLayout
                     android:id="@+id/header_bar"
@@ -48,7 +47,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/margin_comm"
                         android:layout_weight="1"
-                        android:text="某个标题"
+                        android:text=""
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_comm" />
 
@@ -134,10 +133,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <FrameLayout
                 android:id="@+id/fragment_container"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent" />
+                android:layout_height="fill_parent"
+                android:layout_marginTop="@dimen/margin_mid"/>
         </LinearLayout>
     </ScrollView>
 

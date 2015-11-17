@@ -1,4 +1,4 @@
-package com.lib;
+package com.lib.utils;
 
 /**
  * Created by LSD on 15/11/1.

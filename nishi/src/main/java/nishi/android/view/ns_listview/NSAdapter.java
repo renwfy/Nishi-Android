@@ -32,9 +32,9 @@ public class NSAdapter extends SimpleAdapter<Article> {
         } else {
             viewHolde = (ViewHolde) convertView.getTag();
         }
-        viewHolde.tv_name.setText(data.getName());
+        viewHolde.tv_name.setText(data.getTitle());
         viewHolde.tv_address.setText(data.getSite());
-        viewHolde.tv_collect.setText(data.getRecommend() + "");
+        viewHolde.tv_collect.setText(data.getCollectUserNumber() + "");
         Picasso.with(context).load(Constants.QINIU_BASEURL+data.getPlaybill()).placeholder(R.drawable.ic_default_image_lagger).into(viewHolde.iv_list_pic);
         switch (data.getType()) {
             case 0:

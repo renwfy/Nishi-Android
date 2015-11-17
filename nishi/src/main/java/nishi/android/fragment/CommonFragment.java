@@ -43,4 +43,10 @@ public abstract class CommonFragment extends BaseFragment {
 
     protected void onCreateViewCompleted() {
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
+    }
 }

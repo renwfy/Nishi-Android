@@ -59,6 +59,7 @@ public class LoginActivity extends CommonActivity {
         Api.login(phone, pass, new NSCallback<User>(mActivity, User.class, true, "正在登陆") {
             @Override
             public void onSuccess(User user) {
+                AppTips.showToast("登陆成功");
                 NSApplication.getInstance().login(user);
                 finish();
             }
