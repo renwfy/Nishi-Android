@@ -65,4 +65,10 @@ public class LoginActivity extends CommonActivity {
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        ButterKnife.unbind(this);
+        super.onDestroy();
+    }
 }

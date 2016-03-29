@@ -32,4 +32,8 @@ public class CommonActivity extends BaseActivity {
     public void notLogin() {
 
     }
+    
+    public void initView(){
+        // TODO: 16/1/15 initview
+    }
 }

@@ -16,10 +16,9 @@ import butterknife.OnClick;
 import nishi.android.Constants;
 import nishi.android.R;
 import nishi.android.api.Api;
-import nishi.android.fragment.ActivityFragment;
-import nishi.android.fragment.DetailsFragment;
-import nishi.android.fragment.MessageFragment;
-import nishi.android.model.Article;
+import nishi.android.fragment.D_ActivityFragment;
+import nishi.android.fragment.D_DetailsFragment;
+import nishi.android.fragment.D_MessageFragment;
 import nishi.android.model.ArticleDetails;
 import nishi.android.net.NSCallback;
 
@@ -61,9 +60,9 @@ public class DetailsActivity extends CommonActivity implements View.OnClickListe
 
     public void setupView() {
         fragments = new Fragment[3];
-        fragments[0] = new DetailsFragment();
-        fragments[1] = new MessageFragment();
-        fragments[2] = new ActivityFragment();
+        fragments[0] = new D_DetailsFragment();
+        fragments[1] = new D_MessageFragment();
+        fragments[2] = new D_ActivityFragment();
 
         mTabs = new View[3];
         mTabs[0] = tv_details;
@@ -110,15 +109,15 @@ public class DetailsActivity extends CommonActivity implements View.OnClickListe
 
     //第一个页面
     public void initFragmentDetails(ArticleDetails article){
-        ((DetailsFragment)fragments[0]).setData(article);
+        ((D_DetailsFragment)fragments[0]).setData(article);
     }
     //第二个页面
     public void initFragmentMessage(ArticleDetails article){
-        ((MessageFragment)fragments[1]).setData(article);
+        ((D_MessageFragment)fragments[1]).setData(article);
     }
     //第三一个页面
     public void initFragmentActivity(ArticleDetails article){
-        ((ActivityFragment)fragments[2]).setData(article);
+        ((D_ActivityFragment)fragments[2]).setData(article);
     }
 
     /**

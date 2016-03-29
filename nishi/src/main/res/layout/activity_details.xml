@@ -23,6 +23,7 @@
                 <ImageView
                     android:id="@+id/iv_cover"
                     android:layout_width="match_parent"
+                    android:src="@drawable/ic_cover"
                     android:layout_height="@dimen/cover_hight"
                     android:scaleType="fitXY" />
 
@@ -57,7 +58,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="@dimen/margin_lagger2"
-                        android:src="@drawable/ic_favorites" />
+                        android:src="@drawable/ic_favorites0" />
 
                     <ImageView
                         android:id="@+id/iv_share"

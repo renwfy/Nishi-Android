@@ -27,6 +27,10 @@ import butterknife.OnClick;
 import nishi.android.activity.CommonActivity;
 import nishi.android.activity.DetailsActivity;
 import nishi.android.activity.LoginActivity;
+import nishi.android.activity.NearActivity;
+import nishi.android.activity.PublishActivity;
+import nishi.android.activity.SearchActivity;
+import nishi.android.activity.UserCenterActivity;
 import nishi.android.api.Api;
 import nishi.android.model.Article;
 import nishi.android.net.NSCallback;
@@ -34,18 +38,10 @@ import nishi.android.view.NSFragment;
 
 public class MainActivity extends CommonActivity {
     IndicatorViewPager indicatorViewPager;
-    @Bind(R.id.tv_home_location)
-    TextView tv_home_location;
-    @Bind(R.id.iv_home_edit)
-    ImageView iv_home_edit;
     @Bind(R.id.tab_indicator)
     ScrollIndicatorView tab_indicator;
     @Bind(R.id.tab_viewPager)
     ViewPager tab_viewPager;
-    //@Bind(R.id.iv_near)
-    ImageView iv_near;
-    //@Bind(R.id.iv_search)
-    ImageView iv_search;
 
     String[] tabs = new String[]{"推荐", "美食", "活动", "周边游", "逛街"};
 
@@ -58,7 +54,7 @@ public class MainActivity extends CommonActivity {
         initView();
     }
 
-    private void initView() {
+    public void initView() {
         ColorBar colorBar = new ColorBar(this, Color.WHITE, 5);
         colorBar.setWidth(100);
         tab_indicator.setScrollBar(colorBar);
@@ -71,13 +67,28 @@ public class MainActivity extends CommonActivity {
         indicatorViewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
     }
 
+    //注解点击事件
+    @OnClick(R.id.iv_near)
+    public void homeNearClick(){
+        startActivity(new Intent(mActivity, NearActivity.class));
+    }
+    @OnClick(R.id.iv_search)
+    public void homeSearchClick(){
+        startActivity(new Intent(mActivity, SearchActivity.class));
+    }
     @OnClick(R.id.iv_user)
     public void userAcoutClick(){
+       /* if(NSApplication.isLogined()){
+            startActivity(new Intent(mActivity, UserCenterActivity.class));
+        }else{
+            startActivity(new Intent(mActivity, LoginActivity.class));
+        }*/
         startActivity(new Intent(mActivity, LoginActivity.class));
     }
+
     @OnClick(R.id.iv_home_edit)
     public void userAcoutEdit(){
-        startActivity(new Intent(mActivity, DetailsActivity.class));
+        startActivity(new Intent(mActivity, PublishActivity.class));
     }
 
     private class PagerAdapter extends IndicatorViewPager.IndicatorFragmentPagerAdapter {

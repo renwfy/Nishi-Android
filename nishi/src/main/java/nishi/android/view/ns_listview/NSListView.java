@@ -88,6 +88,10 @@ public abstract class NSListView<T> {
         return root;
     }
 
+    public ListView getListView(){
+        return listView;
+    }
+
     public abstract void loadData();
 
     public abstract void onItemClick(T t);

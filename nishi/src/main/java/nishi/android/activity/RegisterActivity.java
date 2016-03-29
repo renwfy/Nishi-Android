@@ -41,7 +41,7 @@ public class RegisterActivity extends CommonActivity {
         initView();
     }
 
-    private void initView(){
+    public void initView(){
     }
 
     @OnClick(R.id.iv_back)

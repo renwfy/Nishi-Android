@@ -50,6 +50,7 @@ public class NSApplication extends Application {
     }
 
     public static boolean isLogined() {
-        return !TextUtils.isEmpty(getToken());
+        return true;
+        //return !TextUtils.isEmpty(getToken());
     }
 }

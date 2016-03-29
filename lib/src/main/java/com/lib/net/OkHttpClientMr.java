@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by zhy on 15/8/17.
@@ -34,6 +35,7 @@ public class OkHttpClientMr {
 
     private OkHttpClientMr() {
         mOkHttpClient = new OkHttpClient();
+        mOkHttpClient.setConnectTimeout(4, TimeUnit.SECONDS);
         mDelivery = new Handler(Looper.getMainLooper());
     }
 

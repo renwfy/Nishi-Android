@@ -27,6 +27,7 @@ public class NSFragment extends CommonFragment {
     NSListView nsListView;
     NSAdapter adapter;
 
+    int extType = 0;
     int size = 10;
     int page = 0;
     int sortType = 0;//排序类型
@@ -42,6 +43,7 @@ public class NSFragment extends CommonFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        extType = getArguments().getInt(INTENT_INT_INDEX);
         nsFragment = this;
     }
 
@@ -70,13 +72,52 @@ public class NSFragment extends CommonFragment {
     }
 
     private void loadData() {
+        //,0:美食 1:周边游 2:逛街 3:活动
+        if(extType == 0 || extType == 1){
+            type = 0;
+        }
+        if(extType == 2){
+            type = 3;
+        }
+        if(extType == 3){
+            type = 1;
+        }
+        if(extType == 4){
+            type = 2;
+        }
         Api.articles(page, size, sortType, city, tradingArea, type, recommend,
                 searchKey, longitude, location, new NSCallback<Article>(mActivity, Article.class) {
                     @Override
                     public void onSuccess(List<Article> t, int total) {
+                        if(t== null || t.size()<= 0){
+                            t = new ArrayList<>();
+                            Article article = new Article();
+                            article.setTitle("这是一个标题");
+                            article.setSite("内容简介");
+                            article.setCollectUserNumber(3);
+                            article.setType(type);
+                            t.add(article);
+                            t.add(article);
+                            t.add(article);
+                        }
                         adapter.setData(t);
                         nsListView.loadFinish();
                     }
-        });
+
+                    @Override
+                    public void onFail(int code, String msg) {
+                            List<Article> t = new ArrayList<>();
+                            Article article = new Article();
+                            article.setTitle("这是一个标题");
+                            article.setSite("内容简介");
+                            article.setCollectUserNumber(3);
+                            article.setType(type);
+                            t.add(article);
+                            t.add(article);
+                            t.add(article);
+                        adapter.setData(t);
+                        nsListView.loadFinish();
+                    }
+                });
     }
 }

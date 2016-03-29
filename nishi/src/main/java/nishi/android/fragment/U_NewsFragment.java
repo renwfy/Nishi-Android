@@ -1,23 +1,19 @@
 package nishi.android.fragment;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import nishi.android.R;
-import nishi.android.model.Article;
 import nishi.android.model.ArticleDetails;
 
 /**
  * Created by LSD on 15/11/8.
  */
-public class MessageFragment extends CommonFragment {
+public class U_NewsFragment extends CommonFragment {
     @Bind(R.id.iv1)
     ImageView iv1;
     @Bind(R.id.tv_name)
@@ -53,6 +49,9 @@ public class MessageFragment extends CommonFragment {
     }
 
     private void initData(){
+        if(article == null){
+            return;
+        }
         tvName.setText(article.getName());
         tvAddress.setText(article.getSite());
     }

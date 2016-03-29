@@ -7,6 +7,7 @@ import com.lib.utils.Des3;
 import java.util.HashMap;
 import java.util.Map;
 
+import nishi.android.Session;
 import nishi.android.model.Article;
 import nishi.android.model.ArticleDetails;
 import nishi.android.net.NSCallback;
@@ -178,5 +179,18 @@ public class Api extends NSHttpClent {
 
         String url = "/app/article/articles";
         get(url, pamas, callback);
+    }
+
+    /***
+     * 收藏
+     * @param articleId
+     * @param callback
+     */
+    public static void collect(String articleId,NSCallback callback){
+        Map<String, String> pamas = new HashMap<>();
+        pamas.put("articleId",articleId+"");
+
+        String url = "app/article/collect";
+        post(url, pamas, callback);
     }
 }

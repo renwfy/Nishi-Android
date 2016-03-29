@@ -20,7 +20,7 @@ import nishi.android.model.ArticleDetails;
 /**
  * Created by LSD on 15/11/3.
  */
-public class DetailsFragment extends CommonFragment {
+public class D_DetailsFragment extends CommonFragment {
     @Bind(R.id.iv_avstar)
     ImageView iv_avstar;
     @Bind(R.id.tv_nick)
@@ -57,6 +57,9 @@ public class DetailsFragment extends CommonFragment {
     }
 
     public void initData() {
+        if(article == null){
+            return;
+        }
         tv_nick.setText(article.getCreatorNickname());
         Picasso.with(mActivity).load(Constants.QINIU_BASEURL + article.getCreatorPortraitUri()).placeholder(R.drawable.ic_avstar).transform(new CircleTransform()).into(iv_avstar);
     }
